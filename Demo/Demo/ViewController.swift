@@ -16,11 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableview.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
        return tableview
     }()
-    var data: [String]! = {//数据
-        var array = [String].init()
-        for  i in 0...100 {
-            array.append("哈哈哈\(i)")
-        }
+    var data: [Article]! = {//数据
+        var array = [Article].init()
         return array
     }()
 
@@ -30,6 +27,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.configTable()
         self.configButton()
+        
+        //列表数据请求
+        self.getDataFromServer(){error in
+            self.table.reloadData()
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -55,6 +57,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    
+    //MARK: - 数据请求
+    func getDataFromServer(completion:@escaping((_ error: Error?)->(Void))){
+        let manager = AFHTTPSessionManager.init(sessionConfiguration: URLSessionConfiguration.default)
+        manager.responseSerializer.acceptableContentTypes = Set.init(arrayLiteral: "text/html")
+        manager.get("http://localhost/ArticleController/queryQiuShiBaiKeArticles", parameters: nil, progress: nil, success: { (task, obj) in
+            let dic:[String:Any?] = obj as! [String:Any?]
+            let code: Int = dic["code"] as! Int
+            if code == 200 {//请求成功
+                let array:[[String:String]] = dic["data"] as! [[String:String]]
+                var model_Arr = [Article]()
+                for article:[String: String] in array{
+                    if let data = try?JSONSerialization.data(withJSONObject: article, options: JSONSerialization.WritingOptions.prettyPrinted) {
+                        let model: Article? = try? JSONDecoder.init().decode(Article.self, from: data)
+                        
+                        //json解析
+                        let result: Article? = try! JSONModel.cwn_makModel(Article.self , jsonDic: article, hintDic: nil) as? Article
+                        print(result ?? "")
+                            
+                        model_Arr.append(model!)
+                    }
+                }
+                self.data = model_Arr
+                completion(nil)
+            }
+        }) { (task, error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     //MARK: - UITableViewDatasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -65,8 +97,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
         
         //2.cell赋值
-        let string = self.data[indexPath.row]
-        cell?.textLabel?.text = string
+        let article = self.data[indexPath.row]
+        cell?.textLabel?.text = article.Author
         return cell!
     }
 

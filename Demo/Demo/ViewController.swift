@@ -60,31 +60,68 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: - 数据请求
     func getDataFromServer(completion:@escaping((_ error: Error?)->(Void))){
-        let manager = AFHTTPSessionManager.init(sessionConfiguration: URLSessionConfiguration.default)
-        manager.responseSerializer.acceptableContentTypes = Set.init(arrayLiteral: "text/html")
-        manager.get("http://localhost/ArticleController/queryQiuShiBaiKeArticles", parameters: nil, progress: nil, success: { (task, obj) in
-            let dic:[String:Any?] = obj as! [String:Any?]
-            let code: Int = dic["code"] as! Int
-            if code == 200 {//请求成功
-                let array:[[String:String]] = dic["data"] as! [[String:String]]
-                var model_Arr = [Article]()
-                for article:[String: String] in array{
-                    if let data = try?JSONSerialization.data(withJSONObject: article, options: JSONSerialization.WritingOptions.prettyPrinted) {
-                        let model: Article? = try? JSONDecoder.init().decode(Article.self, from: data)
-                        
-                        //json解析
-                        let result: Article? = try! JSONModel.cwn_makModel(Article.self , jsonDic: article, hintDic: nil) as? Article
-                        print(result ?? "")
-                            
-                        model_Arr.append(model!)
-                    }
-                }
-                self.data = model_Arr
-                completion(nil)
+        let json:String = """
+            {
+            "articleId":1,
+            "sortType":"笑话",
+            "imgUrl":"k",
+            "author":"陈某某",
+            "thumb":"l",
+            "content":"阿哈哈哈哈"
             }
-        }) { (task, error) in
-            print(error.localizedDescription)
-        }
+            """
+        
+        let data1 = json.data(using: String.Encoding.unicode)
+        let dic = try?  JSONSerialization.jsonObject(with: data1!, options: JSONSerialization.ReadingOptions.mutableLeaves)
+   
+        let model: Article? = try? JSONDecoder.init().decode(Article.self, from: data1!)
+                    
+                    //json解析
+        let result: Article? = try? JSONModel.cwn_makModel(Article.self , jsonDic: dic as? [String : Any], hintDic: [
+                        "Author":"author"
+                    ])
+        self.data = [model] as! [Article]
+            completion(nil)
+//        }
+        
+//        let manager = AFHTTPSessionManager.init(sessionConfiguration: URLSessionConfiguration.default)
+//        manager.responseSerializer.acceptableContentTypes = Set.init(arrayLiteral: "text/html")
+//        manager.get("http://localhost/ArticleController/queryQiuShiBaiKeArticles", parameters: nil, progress: nil, success: { (task, obj) in
+//            let obj:Any? = """
+//            {
+//            "code":"200",
+//            data:[
+//            "articleId":1,
+//            "sortType":"笑话",
+//            "imgUrl":""
+//            "author":"陈某某",
+//            "thumb":"",
+//            "content":"阿哈哈哈哈"
+//            ]
+//            }
+//            """
+//            let dic:[String:Any?] = obj as! [String:Any?]
+//            let code: Int = dic["code"] as! Int
+//            if code == 200 {//请求成功
+//                let array:[[String:String]] = dic["data"] as! [[String:String]]
+//                var model_Arr = [Article]()
+//                for article:[String: String] in array{
+//                    if let data = try?JSONSerialization.data(withJSONObject: article, options: JSONSerialization.WritingOptions.prettyPrinted) {
+//                        let model: Article? = try? JSONDecoder.init().decode(Article.self, from: data)
+//
+//                        //json解析
+//                        let result: Article? = try? JSONModel.cwn_makModel(Article.self , jsonDic: article, hintDic: nil)
+//                        print(result ?? "")
+//
+//                        model_Arr.append(model!)
+//                    }
+//                }
+//                self.data = model_Arr
+//                completion(nil)
+//            }
+//        }) { (task, error) in
+//            print(error.localizedDescription)
+//        }
     }
     
     //MARK: - UITableViewDatasource

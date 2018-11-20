@@ -15,13 +15,13 @@ class Article: Codable {
     var Author: String!
     var thumb: String!
     var content: String!
-    
-    enum CodingKeys:String,CodingKey{
-        case Author="author"
-        case articleId 
-        case sortType
-        case imgUrl
-        case thumb
-        case content
-    }
+//    
+//    enum CodingKeys:String,CodingKey{
+//        case Author="author"
+//        case articleId 
+//        case sortType
+//        case imgUrl
+//        case thumb
+//        case content
+//    }
 }

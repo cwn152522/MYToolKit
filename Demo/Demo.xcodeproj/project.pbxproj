@@ -19,6 +19,7 @@
 		B789AF6D3347737C98E76A1F /* Pods_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522B29707C0C68FD0BCA5DFC /* Pods_DemoUITests.framework */; };
 		F4DB20FF21A4307B00A57EFE /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB20FE21A4307B00A57EFE /* Article.swift */; };
 		F4DB210121A4369300A57EFE /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB210021A4369300A57EFE /* JSONModel.swift */; };
+		F4DF143821A533C600B79557 /* LLModelTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF143721A533C600B79557 /* LLModelTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E4F18CFFB2E10AF09E25452D /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		F4DB20FE21A4307B00A57EFE /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F4DB210021A4369300A57EFE /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
+		F4DF143721A533C600B79557 /* LLModelTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLModelTool.swift; sourceTree = "<group>"; };
 		FE0AA2B9B18CE5E146887740 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 				041B4C7621A30F2600479EA1 /* Demo-Bridging-Header.h */,
 				F4DB20FE21A4307B00A57EFE /* Article.swift */,
 				F4DB210021A4369300A57EFE /* JSONModel.swift */,
+				F4DF143721A533C600B79557 /* LLModelTool.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DF143821A533C600B79557 /* LLModelTool.swift in Sources */,
 				041B4C4B21A3084100479EA1 /* ViewController.swift in Sources */,
 				F4DB210121A4369300A57EFE /* JSONModel.swift in Sources */,
 				041B4C4921A3084100479EA1 /* AppDelegate.swift in Sources */,

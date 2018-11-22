@@ -61,17 +61,22 @@ class JSONModel{
         
         for obj in hintDic! {
             if obj.value is String {//如果是string，直接替换
-                let value = dic?[obj.value as! String]
-                transfrom_dic?.removeValue(forKey: obj.value as! String)
-                transfrom_dic?[obj.key as String] = value
+                let value = transfrom_dic?[obj.value as! String]
+//                if value is [String:String] || value is [[String:Any]] {
+//                    print("gewrg")
+//                }else{
+                    transfrom_dic?.removeValue(forKey: obj.value as! String)
+                    transfrom_dic?[obj.key as String] = value
+//                }
             }else if obj.value is [String:String] {//如果是字典，递归转换，最后替换字典
                 let value = self.transform(dic:transfrom_dic?[obj.key as String] as? [String : Any], hintDic: obj.value as? [String: Any] )
                 transfrom_dic?[obj.key as String] = value
             }else if obj.value is [[String:Any]] {//如果是数组，遍历每一项，递归转换，最后替换数组
                 let arr_item = (obj.value as! [[String:Any]]).first
-                var new_Arr:[[String:Any]]?
+                var new_Arr:[[String:Any]]? = nil
                 for item in (transfrom_dic?[obj.key as String] as? [[String: Any]]) ?? [] {
                     if let value = self.transform(dic:item, hintDic: arr_item){
+                        new_Arr = new_Arr ?? [[String:Any]]()
                         new_Arr!.append(value)
                     }
                 }

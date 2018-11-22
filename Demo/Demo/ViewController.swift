@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 "author":"陈某某1",
                 "thumb":"l",
                 "content":"阿哈哈哈哈",
-                "articleds":[{
+                "articles":[{
                     "articleId":"87",
                     "sortType":"笑话",
                     "imgUrl":"k",
@@ -104,7 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         "article":null
                     }
                 }],
-                "article":{
+                "articled":{
                     "articleId":"8733",
                     "sortType":"笑话33",
                     "imgUrl":"k33",
@@ -120,33 +120,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let dic = try? JSONSerialization.jsonObject(with: data1!, options: JSONSerialization.ReadingOptions.mutableLeaves)
 
         //json解析
-//        let result: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: dic as? [String : Any], hintDic: [
+        let result: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: dic as? [String : Any], hintDic: [
+                "Author":"author",
+                "article":"articled",
+                "articled":[
+                    "Author":"author",
+                 ],
+                "articles":[[
+                    "Author":"author",
+                    "article":[
+                        "Author":"author",
+                    ]
+                 ]]
+        ])
+        
+//        let result: Article? = try? LLModelTool.decode(Article.self, resDic: dic as! [String: Any] , hintDic: [
+//            "Author":"author",
+//            "article":[
+//                "Author":"author",
+//            ],
+//            "articles":"articleds",
+//            "articleds":[
 //                "Author":"author",
 //                "article":[
 //                    "Author":"author",
-//                 ],
-//                "articles":"articleds",
-//                "articleds":[[
-//                    "Author":"author",
-//                    "article":[
-//                        "Author":"author",
-//                    ]
-//                 ]]
-//        ])
-        
-        let result: Article? = try? LLModelTool.decode(Article.self, resDic: dic as! [String: Any] , hintDic: [
-            "Author":"author",
-            "article":[
-                "Author":"author",
-            ],
-            "articles":"articleds",
-            "articleds":[
-                "Author":"author",
-                "article":[
-                    "Author":"author",
-                ]
-            ]
-            ])
+//                ]
+//            ]
+//            ])
 
         self.data = result != nil ? [result!] : []//数组不能为nil，否则列表数据源强解的时候会崩溃
             completion(nil)

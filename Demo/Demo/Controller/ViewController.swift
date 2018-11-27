@@ -138,7 +138,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //            completion(nil)
         
         
-        
+//        let managers = BFileManager.init()
         
         
         //实际请求例子

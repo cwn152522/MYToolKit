@@ -9,8 +9,9 @@
 Pod::Spec.new do |s|
 
   s.name         = "MYToolKit"
-  s.platform     = :ios
-  s.version      = "0.0.2"
+  s.platform     = :ios,"8.0"
+  s.version      = "0.0.3"
+  s.swift_version = "4.0"
   s.summary      = "这是一个工具库，主要放一些经常要用的工具类，比如链式实现的自动布局、xib约束适配、xib字体适配等"
 
   s.homepage     = "https://github.com/cwn152522/MYToolKit"

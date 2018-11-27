@@ -8,7 +8,6 @@
 
 #import "NSObject+InitData.h"
 #import <objc/runtime.h>
-#import "NSDictionary+Utility.h"
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 @implementation NSObject (InitData)
 
@@ -36,7 +35,7 @@
             key = [hintDic objectForKey:key]?[hintDic objectForKey:key]:key;
         }
         
-        id value = [propertyDic objectForKeyNotNull:key];
+        id value = [self dic:propertyDic objectForKeyNotNull:key];
         //(避免定义字符串，接收的却是Number的优化，待测试)
         NSString *type = [NSString stringWithUTF8String:ivar_getTypeEncoding(thisIvar)];//获取变量类型
         if(value){
@@ -93,6 +92,20 @@
     NSDictionary *dic = [self changeToDictionaryWithHintDic:nil];
     NSLog(@"%@",dic);
     return dic;
+}
+
+
+
+
+-(id)dic:(NSDictionary *)dic objectForKeyNotNull:(id)key{
+    
+    id object = [dic objectForKey:key];
+    
+    if (object == [NSNull null]) {
+        return nil;
+    }
+    
+    return object;
 }
 
 @end

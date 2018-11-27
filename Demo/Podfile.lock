@@ -8,19 +8,29 @@ PODS:
   - AFNetworking/Reachability (3.2.1)
   - AFNetworking/Security (3.2.1)
   - AFNetworking/Serialization (3.2.1)
+  - MYToolKit (0.0.2):
+    - MYToolKit/MYAutolayout (= 0.0.2)
+    - MYToolKit/MYJsonModel (= 0.0.2)
+    - MYToolKit/MYTableReuseId (= 0.0.2)
+  - MYToolKit/MYAutolayout (0.0.2)
+  - MYToolKit/MYJsonModel (0.0.2)
+  - MYToolKit/MYTableReuseId (0.0.2)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 3.0.0)
+  - MYToolKit (~> 0.0.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworkActivityLogger
     - AFNetworking
+    - MYToolKit
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: e77f68d014becb33c4306a23f56a64906ff72670
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  MYToolKit: 7f8046f64fb70accd3fec47e7db97bc9962b7f87
 
-PODFILE CHECKSUM: 0ed97d5b5345b2687db27ef9b0be0a7d6e123b43
+PODFILE CHECKSUM: 82e56b042f599fd7e32276453bf7dfa5a7247568
 
 COCOAPODS: 1.5.3

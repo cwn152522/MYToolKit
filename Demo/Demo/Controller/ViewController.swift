@@ -152,13 +152,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 var model_Arr = [Article]()
                 for article:[String: Any] in array{
                     //json解析
-                    let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
-                        "Author":"author",
-                    ])
+//                    let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
+//                        "Author":"author",
+//                    ])
 
-                    if model != nil {
-                        model_Arr.append(model!)
-                    }
+//                    if model != nil {
+//                        model_Arr.append(model!)
+//                    }
                 }
                 self.data = model_Arr
                 completion(nil)

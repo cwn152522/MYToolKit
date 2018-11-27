@@ -22,7 +22,20 @@ Pod::Spec.new do |s|
  
   s.source       = { :git => "https://github.com/cwn152522/MYToolKit.git", :tag => "#{s.version}" }
 
-  s.source_files = "source_files}"
+  # s.source_files = "source_files/MYAutolayout/*.{h,m}"
+
+
+  s.subspec 'MYAutolayout' do |ss|
+  ss.source_files = "source_files/MYAutolayout/*.{h,m}"
+  end
+
+  s.subspec 'MYJsonModel' do |sss|
+  sss.source_files = "source_files/MYJsonModel/*.{h,m}"
+  end
+
+  s.subspec 'MYTableReuseId' do |ssss|
+  ssss.source_files = "source_files/MYTableReuseId/*.{h,m}"
+  end
  
   s.frameworks   = "UIKit"
 

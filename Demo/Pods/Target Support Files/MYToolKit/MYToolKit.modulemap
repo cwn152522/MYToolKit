@@ -1,6 +1,0 @@
-framework module MYToolKit {
-  umbrella header "MYToolKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

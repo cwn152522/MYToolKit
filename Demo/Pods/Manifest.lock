@@ -8,23 +8,19 @@ PODS:
   - AFNetworking/Reachability (3.2.1)
   - AFNetworking/Security (3.2.1)
   - AFNetworking/Serialization (3.2.1)
-  - MYToolKit (0.0.1)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 3.0.0)
-  - MYToolKit (~> 0.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworkActivityLogger
     - AFNetworking
-    - MYToolKit
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: e77f68d014becb33c4306a23f56a64906ff72670
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  MYToolKit: ec72927af6b64a3b06c1a163a0ba2cfc0f26cd79
 
-PODFILE CHECKSUM: c1ad890accba26aca5e8d2f845ccb140682e382a
+PODFILE CHECKSUM: 0ed97d5b5345b2687db27ef9b0be0a7d6e123b43
 
 COCOAPODS: 1.5.3

@@ -16,7 +16,6 @@
 		57FAB3523426791430151EBC /* Pods_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF91A12829B9A9F7931C920E /* Pods_DemoTests.framework */; };
 		6C87BF82C986ED1E146834BD /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0AA2B9B18CE5E146887740 /* Pods_Demo.framework */; };
 		B789AF6D3347737C98E76A1F /* Pods_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522B29707C0C68FD0BCA5DFC /* Pods_DemoUITests.framework */; };
-		F4C56DBA21AD41D7006D2497 /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C56DB921AD41D7006D2497 /* JSONModel.swift */; };
 		F4C56DC021AD4214006D2497 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C56DBC21AD4214006D2497 /* ViewController.swift */; };
 		F4C56DC121AD4214006D2497 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C56DBE21AD4214006D2497 /* Article.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +59,6 @@
 		B8B372EEC0D8204B0E3516A0 /* Pods-DemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoUITests/Pods-DemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC8E123F3F85D58C2263B7C /* Pods-DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoTests/Pods-DemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4F18CFFB2E10AF09E25452D /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		F4C56DB921AD41D7006D2497 /* JSONModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
 		F4C56DBC21AD4214006D2497 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F4C56DBE21AD4214006D2497 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		FE0AA2B9B18CE5E146887740 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +117,6 @@
 		041B4C4721A3084100479EA1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				F4C56DB821AD41D7006D2497 /* JsonModel */,
 				F4C56DBB21AD4214006D2497 /* Controller */,
 				F4C56DBD21AD4214006D2497 /* Model */,
 				F4C56DBF21AD4214006D2497 /* View */,
@@ -172,14 +169,6 @@
 				B336B705630F177B37D3CF2F /* Pods-DemoUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		F4C56DB821AD41D7006D2497 /* JsonModel */ = {
-			isa = PBXGroup;
-			children = (
-				F4C56DB921AD41D7006D2497 /* JSONModel.swift */,
-			);
-			path = JsonModel;
 			sourceTree = "<group>";
 		};
 		F4C56DBB21AD4214006D2497 /* Controller */ = {
@@ -382,13 +371,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworkActivityLogger/AFNetworkActivityLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/MYToolKit/MYToolKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworkActivityLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MYToolKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -422,7 +409,6 @@
 			files = (
 				F4C56DC121AD4214006D2497 /* Article.swift in Sources */,
 				F4C56DC021AD4214006D2497 /* ViewController.swift in Sources */,
-				F4C56DBA21AD41D7006D2497 /* JSONModel.swift in Sources */,
 				041B4C4921A3084100479EA1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

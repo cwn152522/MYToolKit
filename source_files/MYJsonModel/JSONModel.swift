@@ -12,7 +12,7 @@ enum JSONModelError:Error {//定义异常枚举
     case message(String)
 }
 
-class JSONModel{
+public class JSONModel{
     /**
      字典转模型
      */

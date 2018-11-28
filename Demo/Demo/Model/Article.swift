@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Article: Codable {
+public class Article: Codable {
     var articleId: String!
     var sortType: String!
     var imgUrl: String!

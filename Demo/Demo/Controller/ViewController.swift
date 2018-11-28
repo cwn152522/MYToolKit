@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MYToolKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: - 属性定义
@@ -51,6 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.table.delegate = self
         self.view.addSubview(self.table)
         
+        //swift调用pod里的oc库 桥接文件Demo-Bridging-Header.h里#import "MYToolKit/MYToolKit-umbrella.h"
         self.table.cwn_makeConstraints { (maker: UIView!) in
             maker.edgeInsetsToSuper()(UIEdgeInsets.zero)
         }
@@ -152,13 +154,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 var model_Arr = [Article]()
                 for article:[String: Any] in array{
                     //json解析
-//                    let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
-//                        "Author":"author",
-//                    ])
+                    //swift调用pod里的swift库 import MYToolKit
+                    let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
+                        "Author":"author",
+                    ])
 
-//                    if model != nil {
-//                        model_Arr.append(model!)
-//                    }
+                    if model != nil {
+                        model_Arr.append(model!)
+                    }
                 }
                 self.data = model_Arr
                 completion(nil)

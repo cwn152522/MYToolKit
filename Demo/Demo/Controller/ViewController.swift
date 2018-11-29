@@ -176,10 +176,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //1.cell获取(swift调pod里的oc文件)
         let cell: QiuShiBaiKeCellTableViewCell = QiuShiBaiKeCellTableViewCell.getFromXib(with: tableView, indexPath: indexPath) as! QiuShiBaiKeCellTableViewCell;
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
-        //2.cell赋值
+        //2.模型获取
         let article = self.data[indexPath.row]
+        
+        //3.cell赋值
         cell.headerImage.sd_setImage(with: URL.init(string: article.imgUrl), completed: nil)
         cell.name.text = article.Author
         cell.content.text = article.content.trimmingCharacters(in: CharacterSet.init(charactersIn: "\n"))

@@ -11,10 +11,15 @@ import MYToolKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: - 属性定义
+    var page: Int = 0
+    
     var table: UITableView! = {//列表
         let tableview = UITableView.init()
         tableview.tableHeaderView  = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         tableview.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+        tableview.estimatedSectionHeaderHeight = 0
+        tableview.estimatedSectionFooterHeight = 0
+        tableview.estimatedRowHeight = 0;
        return tableview
     }()
     var data: [Article]! = {//数据
@@ -26,13 +31,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: - 页面生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         self.configTable()
         self.configButton()
-        
-        //列表数据请求
-        self.getDataFromServer(){error in
-            self.table.reloadData()
-        }
+        self.requestDataFromServer()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -56,11 +59,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.table.cwn_makeConstraints { (maker: UIView!) in
             maker.edgeInsetsToSuper()(UIEdgeInsets.zero)
         }
+        
+        self.table.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.page = 0
+            self.requestDataFromServer()
+        })
+        
+        self.table.mj_footer = MJRefreshAutoFooter.init(refreshingBlock: {
+            self.requestDataFromServer()
+        })
     }
     
     
-    
     //MARK: - 数据请求
+    func requestDataFromServer(){
+        self.getDataFromServer { (error) -> (Void) in
+            self.table.mj_header.endRefreshing()
+            self.table.mj_footer.endRefreshing()
+            self.table.reloadData()
+        }
+    }
     func getDataFromServer(completion:@escaping((_ error: Error?)->(Void))){
         //注释掉的代码，模拟的json格式为
         /*
@@ -139,30 +157,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        self.data = result != nil ? [result!] : []//数组不能为nil，否则列表数据源强解的时候会崩溃
 //            completion(nil)
         
-        
+        let page = self.page
         //实际请求例子(//3.swift调pod里swift文件 import MYToolKit)
         let manager = AFHTTPSessionManager.init(sessionConfiguration: URLSessionConfiguration.default)
         manager.responseSerializer.acceptableContentTypes = Set.init(arrayLiteral: "text/html")
-        manager.get("http://123.207.65.130/ArticleController/queryQiuShiBaiKeArticles?page=20", parameters: nil, progress: nil, success: { (task, obj) in
-            let dic:[String:Any?] = obj as! [String:Any?]
-            let code: Int = dic["code"] as! Int
-            if code == 200 {//请求成功
-                let array:[[String:Any]] = dic["data"] as! [[String:String]]
-                var model_Arr = [Article]()
-                for article:[String: Any] in array{
-                    //json解析
-                    //swift调用pod里的swift库 import MYToolKit
-                    let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
-                        "Author":"author",
-                    ])
-                    
-
-                    if model != nil {
-                        model_Arr.append(model!)
+        manager.get("http://123.207.65.130/ArticleController/queryQiuShiBaiKeArticles?page=\(self.page)", parameters: nil, progress: nil, success: { (task, obj) in
+            if page == self.page {
+                let dic:[String:Any?] = obj as! [String:Any?]
+                let code: Int = dic["code"] as! Int
+                if code == 200 {//请求成功
+                    let array:[[String:Any]] = dic["data"] as! [[String:String]]
+                    var model_Arr = page != 0 ? self.data! : [Article]()
+                    for article:[String: Any] in array{
+                        //json解析
+                        //swift调用pod里的swift库 import MYToolKit
+                        let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
+                            "Author":"author",
+                            ])
+                        
+                        
+                        if model != nil {
+                            model_Arr.append(model!)
+                        }
                     }
+                    self.data = model_Arr
+                    if array.count > 0 {
+                        self.page = self.page + 1
+                    }
+                    completion(nil)
                 }
-                self.data = model_Arr
-                completion(nil)
             }
         }) { (task, error) in
             print(error.localizedDescription)

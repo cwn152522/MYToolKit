@@ -18,10 +18,12 @@
 		B789AF6D3347737C98E76A1F /* Pods_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522B29707C0C68FD0BCA5DFC /* Pods_DemoUITests.framework */; };
 		F455278121AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455277F21AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift */; };
 		F455278221AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F455278021AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.xib */; };
+		F455278C21B002350064C644 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = F455278B21B002350064C644 /* Tool.m */; };
 		F4B1F09A21AE2BA000CF7165 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1F09821AE2BA000CF7165 /* TestViewController.m */; };
 		F4B1F09B21AE2BA000CF7165 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B1F09921AE2BA000CF7165 /* TestViewController.xib */; };
 		F4C56DC021AD4214006D2497 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C56DBC21AD4214006D2497 /* ViewController.swift */; };
 		F4C56DC121AD4214006D2497 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C56DBE21AD4214006D2497 /* Article.swift */; };
+		F4D39F3421B02AC400513BAB /* UIImage+ImgSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D39F3321B02AC400513BAB /* UIImage+ImgSize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +67,15 @@
 		E4F18CFFB2E10AF09E25452D /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		F455277F21AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiuShiBaiKeCellTableViewCell.swift; sourceTree = "<group>"; };
 		F455278021AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QiuShiBaiKeCellTableViewCell.xib; sourceTree = "<group>"; };
+		F455278A21B002350064C644 /* Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		F455278B21B002350064C644 /* Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
 		F4B1F09721AE2BA000CF7165 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F4B1F09821AE2BA000CF7165 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F4B1F09921AE2BA000CF7165 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		F4C56DBC21AD4214006D2497 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F4C56DBE21AD4214006D2497 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		F4D39F3221B02AC400513BAB /* UIImage+ImgSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImgSize.h"; sourceTree = "<group>"; };
+		F4D39F3321B02AC400513BAB /* UIImage+ImgSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImgSize.m"; sourceTree = "<group>"; };
 		FE0AA2B9B18CE5E146887740 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +141,8 @@
 				041B4C5121A3084200479EA1 /* LaunchScreen.storyboard */,
 				041B4C5421A3084200479EA1 /* Info.plist */,
 				041B4C7621A30F2600479EA1 /* Demo-Bridging-Header.h */,
+				F455278A21B002350064C644 /* Tool.h */,
+				F455278B21B002350064C644 /* Tool.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -187,6 +195,8 @@
 				F4B1F09721AE2BA000CF7165 /* TestViewController.h */,
 				F4B1F09821AE2BA000CF7165 /* TestViewController.m */,
 				F4B1F09921AE2BA000CF7165 /* TestViewController.xib */,
+				F4D39F3221B02AC400513BAB /* UIImage+ImgSize.h */,
+				F4D39F3321B02AC400513BAB /* UIImage+ImgSize.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -432,6 +442,8 @@
 				F4C56DC121AD4214006D2497 /* Article.swift in Sources */,
 				F455278121AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift in Sources */,
 				F4C56DC021AD4214006D2497 /* ViewController.swift in Sources */,
+				F455278C21B002350064C644 /* Tool.m in Sources */,
+				F4D39F3421B02AC400513BAB /* UIImage+ImgSize.m in Sources */,
 				F4B1F09A21AE2BA000CF7165 /* TestViewController.m in Sources */,
 				041B4C4921A3084100479EA1 /* AppDelegate.swift in Sources */,
 			);
@@ -616,6 +628,11 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MYToolKit\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Swift-A\"",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"ROOT_PATH=\"${SRCROOT}\"",
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Demo/Info.plist;

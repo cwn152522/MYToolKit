@@ -5,3 +5,5 @@
 #import "MYToolKit/MYToolKit-umbrella.h"
 #import "SDWebImage/SDWebImage.h"
 #import "MJRefresh/MJRefresh.h"
+#import "Tool.h"
+#import "UIImage+ImgSize.h"

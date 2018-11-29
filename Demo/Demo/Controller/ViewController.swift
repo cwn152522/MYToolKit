@@ -17,9 +17,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tableview = UITableView.init()
         tableview.tableHeaderView  = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         tableview.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-        tableview.estimatedSectionHeaderHeight = 0
-        tableview.estimatedSectionFooterHeight = 0
-        tableview.estimatedRowHeight = 0;
+        if #available(iOS 11, *){
+            //可以通过以下方式禁用
+            UITableView.appearance().estimatedRowHeight = 0;
+            UITableView.appearance().estimatedSectionFooterHeight = 0;
+            UITableView.appearance().estimatedSectionHeaderHeight = 0;
+        }
+
        return tableview
     }()
     var data: [Article]! = {//数据
@@ -36,6 +40,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.configTable()
         self.configButton()
         self.requestDataFromServer()
+        
+        let path =  "/Users/cwn/Desktop/公网服务器项目/我的github项目/MYToolKit/Demo"
+        let filecount = Tool.searchIB(inPath: path, pattern: "constraint")
+        print("个数\(filecount)")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -208,7 +216,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.name.text = article.Author
         cell.content.text = article.content.trimmingCharacters(in: CharacterSet.init(charactersIn: "\n"))
         cell.thumb.sd_setImage(with: NSURL.init(string: article.thumb)! as URL, completed: nil)
-        cell.thumbHeight.constant = article.thumb.count == 0 ? 0 : 154.5
+        if article.thumb.count > 0 {
+            let size: CGSize = UIImage.getSizeWithURL(article.thumb)
+            cell.thumbHeight.constant = (cell.frame.size.width - 20) * size.height / size.width
+        }else {
+            cell.thumbHeight.constant = 0
+        }
         return cell
     }
 
@@ -217,7 +230,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return UITableViewAutomaticDimension
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return 100
     }
     
     

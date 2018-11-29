@@ -16,6 +16,8 @@
 		57FAB3523426791430151EBC /* Pods_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF91A12829B9A9F7931C920E /* Pods_DemoTests.framework */; };
 		6C87BF82C986ED1E146834BD /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0AA2B9B18CE5E146887740 /* Pods_Demo.framework */; };
 		B789AF6D3347737C98E76A1F /* Pods_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522B29707C0C68FD0BCA5DFC /* Pods_DemoUITests.framework */; };
+		F455278121AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455277F21AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift */; };
+		F455278221AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F455278021AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.xib */; };
 		F4B1F09A21AE2BA000CF7165 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1F09821AE2BA000CF7165 /* TestViewController.m */; };
 		F4B1F09B21AE2BA000CF7165 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B1F09921AE2BA000CF7165 /* TestViewController.xib */; };
 		F4C56DC021AD4214006D2497 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C56DBC21AD4214006D2497 /* ViewController.swift */; };
@@ -61,6 +63,8 @@
 		B8B372EEC0D8204B0E3516A0 /* Pods-DemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoUITests/Pods-DemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC8E123F3F85D58C2263B7C /* Pods-DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoTests/Pods-DemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4F18CFFB2E10AF09E25452D /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		F455277F21AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiuShiBaiKeCellTableViewCell.swift; sourceTree = "<group>"; };
+		F455278021AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QiuShiBaiKeCellTableViewCell.xib; sourceTree = "<group>"; };
 		F4B1F09721AE2BA000CF7165 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F4B1F09821AE2BA000CF7165 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F4B1F09921AE2BA000CF7165 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 		F4C56DBF21AD4214006D2497 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F455277F21AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift */,
+				F455278021AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 			files = (
 				041B4C5321A3084200479EA1 /* LaunchScreen.storyboard in Resources */,
 				041B4C5021A3084200479EA1 /* Assets.xcassets in Resources */,
+				F455278221AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.xib in Resources */,
 				F4B1F09B21AE2BA000CF7165 /* TestViewController.xib in Resources */,
 				041B4C4E21A3084100479EA1 /* Main.storyboard in Resources */,
 			);
@@ -381,12 +388,14 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworkActivityLogger/AFNetworkActivityLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/MYToolKit/MYToolKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworkActivityLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MYToolKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -419,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4C56DC121AD4214006D2497 /* Article.swift in Sources */,
+				F455278121AFAFF20064C644 /* QiuShiBaiKeCellTableViewCell.swift in Sources */,
 				F4C56DC021AD4214006D2497 /* ViewController.swift in Sources */,
 				F4B1F09A21AE2BA000CF7165 /* TestViewController.m in Sources */,
 				041B4C4921A3084100479EA1 /* AppDelegate.swift in Sources */,

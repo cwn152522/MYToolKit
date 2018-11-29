@@ -39,20 +39,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: - 控件初始化
     func configButton(){
-        let button: UIButton = UIButton.init()
-        button.setTitleColor(UIColor.red, for: UIControlState.normal)
-        button.setTitle("哈哈哈", for: UIControlState.normal)
-        self.view.addSubview(button)
-        button.cwn_makeConstraints { (maker: UIView!) in
-            maker.centerXtoSuper()(0)?.centerYtoSuper()(0)
-        }
+//        let button: UIButton = UIButton.init()
+//        button.setTitleColor(UIColor.red, for: UIControlState.normal)
+//        button.setTitle("哈哈哈", for: UIControlState.normal)
+//        self.view.addSubview(button)
+//        button.cwn_makeConstraints { (maker: UIView!) in
+//            maker.centerXtoSuper()(0)?.centerYtoSuper()(0)
+//        }
     }
     func configTable(){
         self.table.dataSource = self
         self.table.delegate = self
         self.view.addSubview(self.table)
         
-        //swift调用pod里的oc库 桥接文件Demo-Bridging-Header.h里#import "MYToolKit/MYToolKit-umbrella.h"
+        //2.swift调用pod里的oc库 桥接文件Demo-Bridging-Header.h里#import "MYToolKit/MYToolKit-umbrella.h"
         self.table.cwn_makeConstraints { (maker: UIView!) in
             maker.edgeInsetsToSuper()(UIEdgeInsets.zero)
         }
@@ -81,93 +81,92 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
          }
          */
         
-        let json:String = """
-            {
-                "articleId":"87",
-                "sortType":"笑话",
-                "imgUrl":"k",
-                "author":"陈某某1",
-                "thumb":"l",
-                "content":"阿哈哈哈哈",
-                "articled":{
-                    "articleId":"8733",
-                    "sortType":"笑话33",
-                    "imgUrl":"k33",
-                    "author":"陈某某2",
-                    "thumb":"l33",
-                    "content":"阿哈33哈哈哈",
-                    "article":null
-                },
-                 "articles":[{
-                     "articleId":"87",
-                     "sortType":"笑话",
-                     "imgUrl":"k",
-                     "author":"陈某某3",
-                     "thumb":"l",
-                     "content":"阿哈哈哈哈",
-                     "article":{
-                     "articleId":"8733",
-                     "sortType":"笑话33",
-                     "imgUrl":"k33",
-                     "author":"陈某某4",
-                     "thumb":"l33",
-                     "content":"阿哈33哈哈哈",
-                     "article":null
-                     }
-                 }]
-            }
-            """
-        
-        let data1 = json.data(using: String.Encoding.utf8)
-        let dic = try? JSONSerialization.jsonObject(with: data1!, options: JSONSerialization.ReadingOptions.mutableLeaves)
-
-//        json解析
-        let result: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: dic as? [String : Any], hintDic: [
-                "Author":"author",
-                "article":"articled",
-                "articled":[
-                    "Author":"author",
-                 ],
-                "articles":[[
-                    "Author":"author",
-                    "article":[
-                        "Author":"author",
-                    ]
-                ]],
-        ])
-
-        self.data = result != nil ? [result!] : []//数组不能为nil，否则列表数据源强解的时候会崩溃
-            completion(nil)
-        
-        
-        
-        
-        //实际请求例子
-//        let manager = AFHTTPSessionManager.init(sessionConfiguration: URLSessionConfiguration.default)
-//        manager.responseSerializer.acceptableContentTypes = Set.init(arrayLiteral: "text/html")
-//        manager.get("http://123.207.65.130/ArticleController/queryQiuShiBaiKeArticles", parameters: nil, progress: nil, success: { (task, obj) in
-//            let dic:[String:Any?] = obj as! [String:Any?]
-//            let code: Int = dic["code"] as! Int
-//            if code == 200 {//请求成功
-//                let array:[[String:Any]] = dic["data"] as! [[String:String]]
-//                var model_Arr = [Article]()
-//                for article:[String: Any] in array{
-//                    //json解析
-//                    //swift调用pod里的swift库 import MYToolKit
-//                    let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
-//                        "Author":"author",
-//                    ])
-//
-//                    if model != nil {
-//                        model_Arr.append(model!)
-//                    }
-//                }
-//                self.data = model_Arr
-//                completion(nil)
+//        let json:String = """
+//            {
+//                "articleId":"87",
+//                "sortType":"笑话",
+//                "imgUrl":"k",
+//                "author":"陈某某1",
+//                "thumb":"l",
+//                "content":"阿哈哈哈哈",
+//                "articled":{
+//                    "articleId":"8733",
+//                    "sortType":"笑话33",
+//                    "imgUrl":"k33",
+//                    "author":"陈某某2",
+//                    "thumb":"l33",
+//                    "content":"阿哈33哈哈哈",
+//                    "article":null
+//                },
+//                 "articles":[{
+//                     "articleId":"87",
+//                     "sortType":"笑话",
+//                     "imgUrl":"k",
+//                     "author":"陈某某3",
+//                     "thumb":"l",
+//                     "content":"阿哈哈哈哈",
+//                     "article":{
+//                     "articleId":"8733",
+//                     "sortType":"笑话33",
+//                     "imgUrl":"k33",
+//                     "author":"陈某某4",
+//                     "thumb":"l33",
+//                     "content":"阿哈33哈哈哈",
+//                     "article":null
+//                     }
+//                 }]
 //            }
-//        }) { (task, error) in
-//            print(error.localizedDescription)
-//        }
+//            """
+//        
+//        let data1 = json.data(using: String.Encoding.utf8)
+//        let dic = try? JSONSerialization.jsonObject(with: data1!, options: JSONSerialization.ReadingOptions.mutableLeaves)
+//
+//        //3.swift调pod里swift文件 import MYToolKit
+//        let result: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: dic as? [String : Any], hintDic: [
+//                "Author":"author",
+//                "article":"articled",
+//                "articled":[
+//                    "Author":"author",
+//                 ],
+//                "articles":[[
+//                    "Author":"author",
+//                    "article":[
+//                        "Author":"author",
+//                    ]
+//                ]],
+//        ])
+//
+//        self.data = result != nil ? [result!] : []//数组不能为nil，否则列表数据源强解的时候会崩溃
+//            completion(nil)
+        
+        
+        //实际请求例子(//3.swift调pod里swift文件 import MYToolKit)
+        let manager = AFHTTPSessionManager.init(sessionConfiguration: URLSessionConfiguration.default)
+        manager.responseSerializer.acceptableContentTypes = Set.init(arrayLiteral: "text/html")
+        manager.get("http://123.207.65.130/ArticleController/queryQiuShiBaiKeArticles?page=20", parameters: nil, progress: nil, success: { (task, obj) in
+            let dic:[String:Any?] = obj as! [String:Any?]
+            let code: Int = dic["code"] as! Int
+            if code == 200 {//请求成功
+                let array:[[String:Any]] = dic["data"] as! [[String:String]]
+                var model_Arr = [Article]()
+                for article:[String: Any] in array{
+                    //json解析
+                    //swift调用pod里的swift库 import MYToolKit
+                    let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
+                        "Author":"author",
+                    ])
+                    
+
+                    if model != nil {
+                        model_Arr.append(model!)
+                    }
+                }
+                self.data = model_Arr
+                completion(nil)
+            }
+        }) { (task, error) in
+            print(error.localizedDescription)
+        }
     }
     
     //MARK: - UITableViewDatasource
@@ -175,16 +174,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return data.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //1.cell获取
-        let cell =  UITableViewCell.init(fromClassWith: table, indexPath: indexPath)
-        cell?.selectionStyle = UITableViewCellSelectionStyle.none
+        //1.cell获取(swift调pod里的oc文件)
+        let cell: QiuShiBaiKeCellTableViewCell = QiuShiBaiKeCellTableViewCell.getFromXib(with: tableView, indexPath: indexPath) as! QiuShiBaiKeCellTableViewCell;
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         //2.cell赋值
         let article = self.data[indexPath.row]
-        cell?.textLabel?.text = article.Author
-        return cell!
+        cell.headerImage.sd_setImage(with: URL.init(string: article.imgUrl), completed: nil)
+        cell.name.text = article.Author
+        cell.content.text = article.content.trimmingCharacters(in: CharacterSet.init(charactersIn: "\n"))
+        cell.thumb.sd_setImage(with: NSURL.init(string: article.thumb)! as URL, completed: nil)
+        cell.thumbHeight.constant = article.thumb.count == 0 ? 0 : 154.5
+        return cell
     }
 
+    //MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
     
     //MARK: - Others

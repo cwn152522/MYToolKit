@@ -3,3 +3,4 @@
 //
 #import "AFNetworking/AFNetworking-umbrella.h"
 #import "MYToolKit/MYToolKit-umbrella.h"
+#import "SDWebImage/SDWebImage.h"

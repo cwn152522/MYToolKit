@@ -6,6 +6,7 @@ target 'Demo' do
   use_frameworks!
 
   # Pods for Demo
+pod 'SDWebImage', '~> 5.0.0-beta3'
 pod 'AFNetworkActivityLogger', '~> 3.0.0'
 pod 'MYToolKit', '~> 0.0.3'
   target 'DemoTests' do

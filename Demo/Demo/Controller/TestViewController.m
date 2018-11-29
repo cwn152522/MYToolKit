@@ -22,13 +22,13 @@
     view.backgroundColor = [UIColor redColor];
     [self.view addSubview:view];
     
-    //oc调用pod第三方库 #import "MYToolKit-umbrella.h"
+    //1.oc调用pod里的oc文件 #import "MYToolKit-umbrella.h"
     [view cwn_makeConstraints:^(UIView *maker) {
         maker.edgeInsetsToSuper(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
     
-    //oc调用项目的swift #import "Demo-Swift.h"
+    //2.oc调用项目的swift #import "Demo-Swift.h"
     ViewController *vc =[[ViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
     // Do any additional setup after loading the view from its nib.

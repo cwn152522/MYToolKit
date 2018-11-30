@@ -17,6 +17,7 @@ public class Article: Codable {
     var content: String!
     var articles: [Article]!
     var article: Article!
+    var thumbHeight: CGFloat!
     
 //    enum CodingKeys:String,CodingKey{
 //        case Author="author"

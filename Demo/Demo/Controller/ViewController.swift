@@ -217,8 +217,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.content.text = article.content.trimmingCharacters(in: CharacterSet.init(charactersIn: "\n"))
         cell.thumb.sd_setImage(with: NSURL.init(string: article.thumb)! as URL, completed: nil)
         if article.thumb.count > 0 {
-            let size: CGSize = UIImage.getSizeWithURL(article.thumb)
-            cell.thumbHeight.constant = (cell.frame.size.width - 20) * size.height / size.width
+            var height = article.thumbHeight
+            if(height ==  nil){
+                let size: CGSize = UIImage.getSizeWithURL(article.thumb)
+                height = (cell.frame.size.width - 20) * size.height / size.width
+            }
+            article.thumbHeight = height;
+            cell.thumbHeight.constant = article.thumbHeight ?? 0
         }else {
             cell.thumbHeight.constant = 0
         }

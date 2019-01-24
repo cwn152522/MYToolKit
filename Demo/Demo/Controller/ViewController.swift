@@ -179,9 +179,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     for article:[String: Any] in array{
                         //json解析
                         //swift调用pod里的swift库 import MYToolKit
-                        let model: Article? = try? JSONModel.cwn_makeModel(Article.self , jsonDic: article, hintDic: [
-                            "Author":"author",
-                            ])
+                        let model: Article? = try? MYJSONTool.cwn_makeModel()
                         
                         
                         if model != nil {

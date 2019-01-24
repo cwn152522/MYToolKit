@@ -11,7 +11,7 @@
 #endif
 
 #import "UIView+CWNView.h"
-#import "NSObject+InitData.h"
+#import "NSObject+RunTimeJsonModel.h"
 #import "UITableViewCell+ReuseID.h"
 
 FOUNDATION_EXPORT double MYToolKitVersionNumber;

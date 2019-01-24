@@ -17,7 +17,7 @@ public class MYJSONTool{
      @param hintDic 映射字典
      @note 映射规则：key是模型的key，value是json字典的key
      */
-    static func jsonToModel<T: Codable>(type: T.Type, jsonDic: Any?, hintDic: [String: Any]?) -> T? {
+    public static func jsonToModel<T: Codable>(type: T.Type, jsonDic: Any?, hintDic: [String: Any]?) -> T? {
         guard jsonDic is [String: Any] else {
             return nil
         }
@@ -36,7 +36,7 @@ public class MYJSONTool{
     /**
      模型转json字典
      */
-    static public func changeToJsonDic<T: Codable>(type: T.Type, obj:T)->[String: Any]?{
+    public static func changeToJsonDic<T: Codable>(type: T.Type, obj:T)->[String: Any]?{
         var dic:[String: Any]? = nil
         let encoder = JSONEncoder.init()
         if let data:Data = try? encoder.encode(obj){

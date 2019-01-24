@@ -18,14 +18,4 @@ public class Article: Codable {
     var articles: [Article]!
     var article: Article!
     var thumbHeight: CGFloat!
-    
-//    enum CodingKeys:String,CodingKey{
-//        case Author="author"
-//        case articleId
-//        case sortType
-//        case imgUrl
-//        case thumb
-//        case content
-//        case article
-//    }
 }

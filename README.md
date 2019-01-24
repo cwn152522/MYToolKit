@@ -1,5 +1,8 @@
-# MYToolKit
 oc、swift的一些小工具类封装(autolayout、json模型转化等)，支持cocoapods
+
+# MYAutolayout
+oc基于链式编程实现的自动布局库，简化布局代码
+
 
 # MYSwiftJsonModel
 swift基于codable协议封装的json-model转化库，代码量不多，大多数工作都系统做了。不同于其他模型转换库封装思想，对于同一个模型，可适用于多种json格式

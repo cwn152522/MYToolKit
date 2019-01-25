@@ -165,6 +165,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        self.data = result != nil ? [result!] : []//数组不能为nil，否则列表数据源强解的时候会崩溃
 //            completion(nil)
         
+        let color = AppConfig.Color.hexColor(color: "0xff5a5a")
+        echo("哈哈哈😂")
+        
+        let yuming = AppConfig.yuMingAnd(path: "/ArticleController/queryQiuShiBaiKeArticles")
+        echo(yuming)
+        
+        let gb_color = AppConfig.GlobalColor
+        
         let page = self.page
         //实际请求例子(//3.swift调pod里swift文件 import MYToolKit)
         let manager = AFHTTPSessionManager.init(sessionConfiguration: URLSessionConfiguration.default)

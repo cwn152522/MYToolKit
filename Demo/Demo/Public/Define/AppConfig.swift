@@ -18,13 +18,14 @@ public class AppConfig: NSObject {
         return yuMing + path
     }
     
-    public static var GlobalColor: UIColor{
-        return self.Color.hexColor(color: "#ff5a5a")
-    }
-    
     //FIXME: 2、颜色
     public static var Color: UIColor.Type{
+        //MARK: 颜色类型
         return UIColor.self
+    }
+    public static var GlobalColor: UIColor{
+        //MARK: 全局色
+        return self.Color.hexColor(color: "#ff5a5a")
     }
 }
 
@@ -36,14 +37,14 @@ public extension UIColor {
     public static func hexColor(color: String) -> UIColor{
         var color_Str = color.lowercased()
         
-        guard color.contains("0x") || color.hasPrefix("#") else {
+        guard color_Str.contains("0x") || color_Str.hasPrefix("#") else {
             return UIColor.clear;
         }
         
         color_Str = color_Str.replacingOccurrences(of: "0x", with: "")
         color_Str = color_Str.replacingOccurrences(of: "#", with: "")
 
-        if(color_Str.count < 6){
+        if color_Str.count < 6{
             return UIColor.clear;
         }
         
